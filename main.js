@@ -1,5 +1,3 @@
-
-
 const container = document.querySelector(".container");
 const mainVideo = document.querySelector("video");
 const videoTimeline = document.querySelector(".video-timeline");
