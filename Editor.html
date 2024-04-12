@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Video Player JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="./Style/editor.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <div class="edtiorspace">
+        <section class="assetsBox">
+            <div class="assetnav">
+                <ul>
+                    <li>Effects</li>
+                    <li class="active">Libraries</li>
+                    <li><input type="file" id="file-upload" value="add file"><label for="file-upload" class="custom-file-upload">
+                        Add file
+                    </label></li>
+                </ul>
+            </div>
+            <div class="asset-thumbnails">
+                    <div class="thumbnail active"><img src="./Images/Occiean.jpeg" alt="project Thumbnail"></div>
+                    <div class="thumbnail"><img src="./Images/car.jpg" alt="project Thumbnail"></div>
+                    <div class="thumbnail"><img src="./Images/car.jpg" alt="project Thumbnail"></div>
+                    <div class="thumbnail"><img src="./Images/Occiean.jpeg" alt="project Thumbnail"></div>
+                    
+            </div>
+        </section>
+        <section class="videoplayer">
+            <div class="container show-controls">
+                <video poster="./Images/Occiean.jpeg" src="demo-video.mp4"></video>
+            </div>
+            <div class="wrapper">
+                <div class="video-timeline">
+                    <div class="progress-area">
+                        <span>00:00</span>
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+                <ul class="video-controls">
+                    <li class="options left">
+                        <button class="volume"><i class="fa-solid fa-volume-high"></i></button>
+                        <input type="range" min="0" max="1" step="any">
+                        <div class="video-timer">
+                            <p class="current-time">00:00</p>
+                            <p class="separator"> / </p>
+                            <p class="video-duration">00:00</p>
+                        </div>
+                    </li>
+                    <li class="options center">
+                        <button class="skip-backward"><i class="fas fa-backward" onclick="Backward()"></i></button>
+                        <button class="play-pause"><i class="fas fa-play" onclick="waveplayPause()"></i></button>
+                        <button class="skip-forward"><i class="fas fa-forward" onclick="forward()"></i></button>
+                    </li>
+                    <li class="options right">
+                        <button class="fullscreen"><i class="fa-solid fa-expand" onclick="fullscreen"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="PropertiesBox">
+            <div class="export">
+                <a href="Index.HTML" class="home-btn"><i class="fa-solid fa-house"></i></a>
+                <a href="#" class="exportBtn UploadBtn">Upload <i class="fa-solid fa-upload"></i></a>
+                <a href="#" class="exportBtn">Export <i class="fa-solid fa-download"></i></a>
+            </div>
+            <div class="Propertiesnav assetnav">
+                <ul>
+                    <li>Effects controls</li>
+                    <li class="active">Properties</li>
+                    <li>Graphics</li>
+                </ul>
+            </div>
+            <div class="Properties">
+                    <div class="scale">
+                        <p>Scale</p>
+                        <div class="scaleinputs">
+                            <input type="range" class="scalerange" onchange="scalechnage(this)" min="1" max="10" value="1">
+                            <input type="number" class="scalenumber" value="1" min="1" max="10" onchange="scalechnage(this)">
+                        </div>
+                    </div>
+                    <div class="opacity">
+                        <p>Opacity</p>
+                        <div class="opacityinputs">
+                            <input type="range" class="opacityrange" onchange="opacitychnage(this)" min="0" max="100" value="100">
+                            <input type="number" class="opacitynumber" value="100" min="0" max="100" onchange="opacitychnage(this)">
+                        </div>
+                    </div>
+                    <div class="rotate">
+                        <p>Rotate</p>
+                        <div class="rotateinputs">
+                            <span>X <input type="number" class="rotate-x" value="0" min="0" max="360" onchange="rotateX(this)"></span>
+                            <span>Y <input type="number" class="rotate-y" value="0" min="0" max="360" onchange="rotateY(this)"></span>
+                            <span>Z <input type="number" class="rotate-z" value="0" min="0" max="360" onchange="rotateZ(this)"></span>
+                        </div>
+                    </div>
+                    <div class="position">
+                        <p>Position</p>
+                        <div class="positioninputs">
+                            <span>X <input type="number" class="rotate-x" value="0"  max="100" onchange="moveX(this)"></span>
+                            <span>Y <input type="number" class="rotate-y" value="0"  max="100" onchange="moveY(this)"></span>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </div>
+    <div class="Trackingbox">
+        <div class="TrackingOptions">
+            <ul>
+                <li class="skip-backward"><i class="fa-solid fa-rotate-right" onclick="Backward()"></i></li>
+                <li class="skip-forward"><i class="fa-solid fa-rotate-right" onclick="forward()"></i></li>
+                <li class="triming"><i class="fa-solid fa-scissors"></i></li>
+                <li class="copytrack"><i class="fa-solid fa-copy"></i></li>
+                <li class="zoomout"><i class="fa-solid fa-magnifying-glass-minus" onclick="zoomout()"></i></li>
+                <li class="zoomRange"><span class="zoominput"></span></li>
+                <li class="zoomin"><i class="fa-solid fa-magnifying-glass-plus" onclick="zoomin()"></i></li>
+            </ul>
+        </div>
+        <div class="trackbox">
+            <div class="tracks">
+                <div class="track">
+                    <p>track 1</p>
+                    <ul>
+                        <li class="show"><i class="fa-solid fa-eye" onclick="show(this)"></i></li>
+                        <li class="lock"><i class="fa-solid fa-lock-open" onclick="lock(this)"></i></li>
+                    </ul>
+                </div>
+                <div class="track">
+                    <P>track 2</P>
+                    <ul>
+                        <li class="show"><i class="fa-solid fa-eye" onclick="show2(this)"></i></li>
+                        <li class="lock"><i class="fa-solid fa-lock-open" onclick="lock(this)"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tracker">
+                <div class="tracker-area">
+                    <div class="trackerbar"></div>
+                    <div class="audioWave" style=" position: relative; top: -78px; overflow: scroll;">
+                        <div id="waveform"></div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      
+      
+          
+    <script type="module">
+        import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js'
+        const wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: '#c3c1c1',
+        progressColor: '#c3c1c1',
+        url: 'demo-video.mp4',
+        volume: false,
+        height: 75,
+    })
+  
+        </script>
+<script src="main.js"></script>
+
+  </body>
+  
+</html>

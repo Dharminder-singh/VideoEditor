@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+.Btn{
+    padding: 10px 20px;
+    background: white;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #e3e2e2;
+    font-weight: 500;
+}
+h2{
+    font-size: 20px;
+    font-weight: 500;
+}
+h3{
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+main{
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+}
+.sideBar{
+    width: 18%;
+    padding: 30px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    width: 30%;
+}
+.logo img{
+    width: 100%;
+}
+.tabs{
+    margin-top: 20px;
+    width: 80%;
+}
+.newBtn{
+    background-color: #294aec;
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+}
+.tab{
+    list-style: none;
+}
+.tab li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    display: block;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+.tab li a:hover {
+    background-color: #dad7d7;
+}
+.tab li a i {
+    margin-right: 10px;
+}
+
+.socialmedia{
+    position: absolute;
+    bottom: 15px;
+}
+.socialmedia-tab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maincontainer{
+    width: 82%;
+    background-color: #dad7d7;
+    overflow-y: scroll;
+}
+.mainNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.mainNav .searchBar{
+    width: 88%;
+    position: relative;
+}
+
+.mainNav .searchBar label{
+   position: absolute;
+   top: 10px;
+   left: 10px;
+}
+
+.searchBar #search{
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: none;
+}
+.notification{
+    font-size: 25px;
+}
+.Account{
+    width: 5%;
+}
+.Account img{
+    width: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.new-projects{
+    margin-top: 50px;
+}
+.NewProject{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.primaryBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    filter: drop-shadow(4px);
+    margin-right: 20px;
+    text-decoration: none;
+    color: #000;
+}
+.primaryBtn:hover {
+    background-color: #294aec;
+    color: #fff;
+}
+.primaryBtn i{
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 7px;
+}
+.createBtn i{
+    color: #bc13bc;
+    background-color: #b975b9d8;
+    
+}
+.recordBtn i{
+    color: #c76012;
+    background-color: #efa267d8;
+}
+
+.recent-projects{
+    margin-top: 20px;
+}
+
+.recent-projects .recent-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.recent-projects .recent-header a{
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #333;
+}
+.recent-projects .recent-header a:hover{
+    text-decoration: underline;
+}
+.recent-projects .Projects{
+    display: flex;
+    flex-wrap: wrap;
+}
+.recent-projects .Project{
+    margin-top: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.recent-projects .Project .thumbnail{
+    width: 300px;
+}
+.recent-projects .Project .thumbnail img{
+    width: 100%;
+}
+.recent-projects .Projects p{
+    font-size: 12px;
+}
+
+.templates{
+     margin-top: 30px;
+}
+
+.template{
+    margin-top: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.templates .allTemplates{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.templateThumbnail{
+    width: 260px;
+}
+.templateThumbnail img{
+    width: 100%;
+    border-radius: 5px;
+    aspect-ratio: 1.5;
+}

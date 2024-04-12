@@ -1,0 +1,473 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.edtiorspace{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+i{
+  cursor: pointer;
+}
+i:hover{
+  color: #0078FF;
+}
+.export{
+  width: 100%;
+  padding: 5px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.home-btn{
+  text-decoration: none;
+  color: #0078FF;
+  font-size: 25px;
+  flex: auto;
+  margin-left: 5px;
+  
+}
+.exportBtn{
+    padding: 5px 10px;
+    background: rgb(4, 204, 84);
+    outline: none;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+    float: right;
+    margin-left: 10px;
+}
+.UploadBtn{
+  background: rgb(211, 238, 4);
+}
+.video-controls, .video-timer, .options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+  /* border-radius: 5px; */
+  background: #000;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.container.fullscreen{
+  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+  border-radius: 0px;
+}
+.wrapper{
+  opacity: 1;
+  transition: all 0.08s ease;
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+}
+
+.video-timeline{
+  height: 7px;
+  width: 100%;
+  cursor: pointer;
+}
+.video-timeline .progress-area{
+  height: 10px;
+  position: relative;
+  box-shadow: inset 0px 0px 4px 6px #d0cdcd;
+}
+.progress-area span{
+  position: absolute;
+  left: 50%;
+  top: -25px;
+  font-size: 13px;
+  color: #fff;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+.progress-area .progress-bar{
+  width: 0%;
+  height: 10px;
+  position: relative;
+  background: #0078FF;
+}
+.progress-bar::before{
+  content: "";
+  right: -4px;
+  top: 50%;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  transform: translateY(-50%);
+}
+.progress-bar::before, .progress-area span{
+  display: none;
+}
+.video-timeline:hover .progress-bar::before,
+.video-timeline:hover .progress-area span{
+  display: block;
+}
+.wrapper .video-controls{
+  padding: 5px 20px 10px;
+}
+.video-controls .options{
+  width: 100%;
+}
+.video-controls .options:first-child{
+  justify-content: flex-start;
+}
+.video-controls .options:last-child{
+  justify-content: flex-end;
+}
+.options button{
+  height: 40px;
+  width: 40px;
+  font-size: 19px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: #000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.options button :where(i, span) {
+  height: 100%;
+  width: 100%;
+  line-height: 40px;
+}
+.options button:hover :where(i, span){
+  color: #000;
+}
+.options button:active :where(i, span){
+  transform: scale(0.9);
+}
+.options button span{
+  font-size: 23px;
+}
+.options input{
+  height: 4px;
+  margin-left: 3px;
+  max-width: 75px;
+  accent-color: #0078FF;
+}
+.options .video-timer{
+  color: #000;
+  margin-left: 15px;
+  font-size: 14px;
+}
+.video-timer .separator{
+  margin: 0 5px;
+  font-size: 16px;
+  font-family: "Open sans";
+}
+.playback-content{
+  display: flex;
+  position: relative;
+}
+.playback-content .speed-options{
+  position: absolute;
+  list-style: none;
+  left: -40px;
+  bottom: 40px;
+  width: 95px;
+  overflow: hidden;
+  opacity: 0;
+  border-radius: 4px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.13s ease;
+}
+.playback-content .speed-options.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+.speed-options li{
+  cursor: pointer;
+  color: #000;
+  font-size: 14px;
+  margin: 2px 0;
+  padding: 5px 0 5px 15px;
+  transition: all 0.1s ease;
+}
+.speed-options li:where(:first-child, :last-child){
+  margin: 0px;
+}
+.speed-options li:hover{
+  background: #dfdfdf;
+}
+.speed-options li.active{
+  color: #fff;
+  background: #3e97fd;
+}
+.container video{
+  width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+  .wrapper .video-controls{
+    padding: 3px 10px 7px;
+  }
+  .options input, .progress-area span{
+    display: none!important;
+  }
+  .options button{
+    height: 30px;
+    width: 30px;
+    font-size: 17px;
+  }
+  .options .video-timer{
+    margin-left: 5px;
+  }
+  .video-timer .separator{
+    font-size: 14px;
+    margin: 0 2px;
+  }
+  .options button :where(i, span) {
+    line-height: 30px;
+  }
+  .options button span{
+    font-size: 21px;
+  }
+  .options .video-timer, .progress-area span, .speed-options li{
+    font-size: 12px;
+  }
+  
+}
+.assetsBox{
+  width: 30%;
+  margin: 5px;
+  background-color: #ece9e9;
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+}
+.assetnav{
+  width: 100%;
+  filter: drop-shadow(1);
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+}
+.assetnav ul{
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 5px 10px;
+}
+.assetnav li{
+  margin-right: 5px;
+  font-size: 15px;
+}
+.assetnav li:hover{
+  color: #0078FF;
+  cursor: pointer;
+}
+.assetnav .active{
+  color: #0078FF;
+}
+.assetnav li input[type="file"]{
+  display: none;
+}
+.asset-thumbnails{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.asset-thumbnails .thumbnail{
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+.asset-thumbnails .active{
+  background-color: #0078FF;
+  opacity: .8;
+}
+.asset-thumbnails .thumbnail:hover{
+  background-color: #0078FF;
+  opacity: .8;
+}
+
+.asset-thumbnails .thumbnail img{
+  width: 100%;
+}
+
+
+.videoplayer{
+  width: 50%;
+  margin: 5px;
+  background-color: #ece9e9;
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+}
+.PropertiesBox{
+  width: 24%;
+  margin: 5px;
+  background-color: #ece9e9;
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+}
+.Properties .scale{
+  width: 100%;
+  padding: 5px;
+  margin: 10px auto;
+}
+.Properties .scale p{
+  margin-bottom: 10px;
+}
+.Properties .scale .scaleinputs{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.scaleinputs .scalerange{
+  width: 70%;
+}
+.Properties .opacity{
+  width: 100%;
+  padding: 5px;
+  margin: 10px auto;
+}
+.Properties .opacity p{
+  margin-bottom: 10px;
+}
+.Properties .opacity .opacityinputs{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.opacityinputs .opacityrange{
+  width: 70%;
+}
+.Properties .rotate{
+  width: 100%;
+  padding: 5px;
+  margin: 10px auto;
+}
+.rotate p {
+  margin-bottom: 10px;
+}
+.rotateinputs{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Properties .position{
+  width: 100%;
+  padding: 5px;
+  margin: 10px auto;
+}
+.position p {
+  margin-bottom: 10px;
+}
+.positioninputs{
+  display: flex;
+  justify-content: space-around;
+}
+.positioninputs input{
+  width: 50%;
+}
+
+
+.Trackingbox{
+  margin: 5px;
+  background-color: #ece9e9;
+  box-shadow: 1px 1px 7px 2px #b6b6b6;
+  overflow-y: scroll;
+}
+.TrackingOptions .skip-backward i{
+  transform: rotateY(180deg);
+}
+.TrackingOptions {
+  /* border-top: 1px solid #000; */
+  padding: 30px 10px;
+}
+.TrackingOptions ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.TrackingOptions ul li {
+ 
+  margin-right: 20px;
+}
+.TrackingOptions ul li i {
+  font-size: 20px;
+}
+.zoomRange{
+  width: 150px;
+  /* border: 1px solid #000; */
+  height: 8px;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 4px 6px #d0cdcd;
+  border-radius: 5px;
+}
+.zoomRange .zoominput{
+  display: block;
+  background-color: #0078FF;
+  width: 10%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.trackbox , .tracks .track{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tracks{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+
+}
+.track{
+  border: 1px solid #000;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around !important;
+}
+.track ul{
+  list-style-type: none;
+}
+
+.tracker{
+  height: 150px;
+  width: 90%;
+  border: 1px solid #000;
+}
+.tracker-area{
+  height: 100%;
+}
+.tracker .trackerbar{
+  height: 150px;
+  width: 0;
+  background-color: transparent;
+  border-right: 3px solid #0078FF;
+  position: relative;
+  z-index: 999;
+}
+.tracker .trackerbar::before{
+  content: '\25be';
+    font-size: 50px;
+    color: #0078FF;
+    right: -22.5px;
+    top: -7px;
+    position: absolute;
+    transform: translateY(-50%);  
+}
